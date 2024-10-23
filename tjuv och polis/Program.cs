@@ -5,27 +5,37 @@
         static void Main(string[] args)
         {
             int Width = 110;
-            int Heigth = 40;
-            List<Citizen> citizens = GetList.Get_List(Width, Heigth);
-            DrawMap.DrawBorder(Width, Heigth);
-            foreach (var Citizens in GetList.citizens )
+            int Height = 40;
+            List<Citizen> citizens = GetList.Get_List(Width, Height);
+            DrawMap.DrawBorder(Width, Height);
+
+            while (true)
+            {
+                foreach (var Citizen in citizens)
                 {
-                    Console.SetCursorPosition(marker.X, marker.Y);
+                    Console.SetCursorPosition(Citizen.X, Citizen.Y);
                     Console.Write(" ");
 
-                    marker.X += 1;
-                    marker.Y += 1;
+                    Citizen.X += Citizen.XDirection;
+                    Citizen.Y += Citizen.YDirection;
 
-                    if (marker.X >= width - 1) marker.X = 1;
-                    if (marker.Y >= height - 1) marker.Y = 1;
+                    if (Citizen.X == Width - 2 || Citizen.X == 1)
+                    {
+                        Citizen.XDirection = - Citizen.XDirection;
+                    }
+                    if (Citizen.Y == Height - 2 || Citizen.Y == 1)
+                    {
+                        Citizen.YDirection = - Citizen.YDirection;
+                    }
                 }
 
-                foreach (var marker in markers)
+                foreach (var Citizen in citizens)
                 {
-                    Console.SetCursorPosition(marker.X, marker.Y);
+                    Console.SetCursorPosition(Citizen.X, Citizen.Y);
                     Console.Write("M");
                 }
-            
+                Thread.Sleep(200);
+            }
         }
     }
 }

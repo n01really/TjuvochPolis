@@ -8,7 +8,7 @@ namespace Tjuv_och_polis
 {
     internal class GetList
     {
-        public static void Get_List(int Width, int Height) 
+        public static List<Citizen> Get_List(int Width, int Height) 
         { 
             List<Citizen> citizens = new List<Citizen>();
 
@@ -18,12 +18,26 @@ namespace Tjuv_och_polis
 
             Random rnd = new Random();
 
+            int x = 0;
+            int y = 0;
+
 
             for (int i = 0; i <= 10; i++)
             {
-                citizens.Add(new Citizen(rnd.Next(1, Width -1), rnd.Next(1, Height -1), rnd.Next(-1,2), rnd.Next(-1,2), 
+                x = rnd.Next(-1, 2);
+                y = rnd.Next(-1, 2);
+
+                while (x == 0 && y == 0)
+                {
+                    x = rnd.Next(-1, 2);
+                    y = rnd.Next(-1, 2);
+                }
+
+                citizens.Add(new Citizen(rnd.Next(1, Width -1), rnd.Next(1, Height -1), x, y, 
                     new List<Inventory> {new Inventory("Watch") }));
             }
+
+            return citizens;
         }
     }
 }

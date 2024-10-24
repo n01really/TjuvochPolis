@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            int Width = 110;
-            int Height = 40;
+            int Width = 70;
+            int Height = 20;
             List<Citizen> citizens = GetList.Get_List(Width, Height);
             DrawMap.DrawBorder(Width, Height);
 
@@ -21,11 +21,11 @@
 
                     if (Citizen.X == Width - 2 || Citizen.X == 1)
                     {
-                        Citizen.XDirection = - Citizen.XDirection;
+                        Citizen.XDirection = -Citizen.XDirection;
                     }
                     if (Citizen.Y == Height - 2 || Citizen.Y == 1)
                     {
-                        Citizen.YDirection = - Citizen.YDirection;
+                        Citizen.YDirection = -Citizen.YDirection;
                     }
                 }
 

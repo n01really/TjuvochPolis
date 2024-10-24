@@ -6,7 +6,12 @@
         {
             int Width = 70;
             int Height = 20;
-            List<Citizen> citizens = GetList.Get_List(Width, Height);
+
+            var rndPos = PositionsGenerate.GeneratePosition(Width, Height);
+            List<Citizen> citizens = new List<Citizen>();
+            Citizen citizen = new Citizen(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>());
+
+            citizens.Add(citizen);
             DrawMap.DrawBorder(Width, Height);
 
             while (true)

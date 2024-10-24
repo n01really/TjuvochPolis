@@ -8,9 +8,9 @@ namespace Tjuv_och_polis
 {
     internal class PositionsGenerate
     {
-        private static Random rnd = new Random();
+        
 
-        public static (int X, int Y, int XDirection, int YDirection) GeneratePosition(int Width, int Height)
+        public static (int X, int Y, int XDirection, int YDirection) GeneratePosition(int Width, int Height, Random rnd)
         {
             int x = rnd.Next(2, Width - 2);
             int y = rnd.Next(2, Width - 2);

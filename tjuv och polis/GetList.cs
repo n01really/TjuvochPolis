@@ -8,6 +8,7 @@ namespace Tjuv_och_polis
 {
     internal class GetList
     {
+        private static Random rnd = new Random();
         public static List<Citizen> Get_List(int Width, int Height) 
         { 
             List<Citizen> citizens = new List<Citizen>();
@@ -15,8 +16,6 @@ namespace Tjuv_och_polis
             List<Robber> robbers = new List<Robber>();
 
             List<Cop> cops = new List<Cop>();
-
-            Random rnd = new Random();
 
             int x = 0;
             int y = 0;

@@ -11,7 +11,7 @@ namespace Tjuv_och_polis
         public static void DrawBorder(int Height, int Width)
         {
             Console.BufferHeight = 150;
-            Console.BufferWidth = 3000;
+            Console.BufferWidth = 300;
             for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)

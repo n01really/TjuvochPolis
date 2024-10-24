@@ -12,6 +12,7 @@ namespace Tjuv_och_polis
         {
             Console.BufferHeight = 150;
             Console.BufferWidth = 300;
+            Console.SetWindowSize(200, 100);
             for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)

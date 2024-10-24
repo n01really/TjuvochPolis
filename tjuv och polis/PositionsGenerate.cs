@@ -12,13 +12,14 @@ namespace Tjuv_och_polis
 
         public static (int X, int Y, int XDirection, int YDirection) GeneratePosition(int Width, int Height)
         {
-            int x = rnd.Next(2,Width - 2);
-            int y = rnd.Next(2,Width - 2);
+            int x = rnd.Next(2, Width - 2);
+            int y = rnd.Next(2, Width - 2);
 
             int xDirection = rnd.Next(0, 2) == 0 ? -1 : 1;
             int yDirection = rnd.Next(0, 2) == 0 ? -1 : 1;
 
             return (x, y, xDirection, yDirection);
+
         }
     }
 }

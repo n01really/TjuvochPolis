@@ -24,6 +24,31 @@ namespace Tjuv_och_polis
             YDirection = yDirection;
             Items = new List<Inventory>();
         }
+
+        public virtual char GetCharacter()
+        {
+            return ' ';
+        }
+        public void Move(int width, int height)
+        {
+            Console.SetCursorPosition(X, Y);
+            Console.Write(" ");
+
+            X += XDirection;
+            Y += YDirection;
+
+            X = Math.Clamp(X, 1, width - 2);
+            Y = Math.Clamp(Y, 1, height - 2);
+
+            if (X == width - 2 || X == 1)
+            {
+                XDirection = -XDirection;
+            }
+            if (Y == height - 2 || Y == 1)
+            {
+                YDirection = -YDirection;
+            }
+        }
     }
 
     class Robber : Person
@@ -38,6 +63,13 @@ namespace Tjuv_och_polis
             Items = new List<Inventory>();
             Prison = prison;
         }
+
+        public override char GetCharacter()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            return 'R';
+            
+        }
     }
 
     class Cop : Person 
@@ -50,6 +82,13 @@ namespace Tjuv_och_polis
             YDirection = yDirection;
             Items = new List<Inventory>();
         }
+        public override char GetCharacter()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            return 'C';
+            
+        }
+        
     }
 
     class Citizen : Person
@@ -61,6 +100,12 @@ namespace Tjuv_och_polis
             XDirection = xDirection;
             YDirection = yDirection;
             Items = new List<Inventory>();
+        }
+        public override char GetCharacter()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            return 'M';
+            
         }
     }
 }

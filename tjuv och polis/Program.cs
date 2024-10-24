@@ -19,6 +19,10 @@
                     Citizen.X += Citizen.XDirection;
                     Citizen.Y += Citizen.YDirection;
 
+                    Citizen.X = Math.Clamp(Citizen.X, 1, Width - 2);
+                    Citizen.Y = Math.Clamp(Citizen.Y, 1, Height - 2);
+
+
                     if (Citizen.X == Width - 2 || Citizen.X == 1)
                     {
                         Citizen.XDirection = -Citizen.XDirection;

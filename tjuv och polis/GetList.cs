@@ -33,7 +33,7 @@ namespace Tjuv_och_polis
                     y = rnd.Next(-1, 2);
                 }
 
-                citizens.Add(new Citizen(rnd.Next(1, Width -1), rnd.Next(1, Height -1), x, y, 
+                citizens.Add(new Citizen(rnd.Next(2, Width -1), rnd.Next(2, Height -1), x, y, 
                     new List<Inventory> {new Inventory("Watch") }));
             }
 

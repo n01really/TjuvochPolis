@@ -36,7 +36,9 @@
                 foreach (var Citizen in citizens)
                 {
                     Console.SetCursorPosition(Citizen.X, Citizen.Y);
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write("M");
+                    Console.ResetColor();
                 }
                 Thread.Sleep(200);
             }

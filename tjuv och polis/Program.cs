@@ -6,8 +6,8 @@ namespace Tjuv_och_polis
     {
         static void Main(string[] args)
         {
-            int Width = 70;
-            int Height = 20;
+            int Width = 120;
+            int Height = 30;
 
             List<Person> persons = new List<Person>();
             Populate(Width, Height, persons);

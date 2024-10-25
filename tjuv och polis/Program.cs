@@ -34,28 +34,26 @@ namespace Tjuv_och_polis
         {
             
 
-            //var rndPos = PositionsGenerate.GeneratePosition(width, height,rnd);
-            for (int i = 0; i < 20; i++)
+            Random rnd = new Random();
+
+            for (int i = 0; i < 10; i++)
             {
-                Random rnd = new Random(i);
                 var rndPos = PositionsGenerate.GeneratePosition(width, height, rnd);
                 
                 persons.Add(new Citizen(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>()));
                 Thread.Sleep(100);
             }
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 5; i++)
             {
-                Random rnd = new Random(i+2);
                 var rndPos = PositionsGenerate.GeneratePosition(width, height, rnd);
 
                 persons.Add(new Robber(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>(), prison:false));
                 Thread.Sleep(100);
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 1; i++)
             {
-                Random rnd = new Random(i+5);
                 var rndPos = PositionsGenerate.GeneratePosition(width, height, rnd);
 
                 persons.Add(new Cop(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>()));

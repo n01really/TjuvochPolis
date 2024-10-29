@@ -14,23 +14,28 @@ namespace Tjuv_och_polis
         {
             var robbers = persons.OfType<Robber>().ToList();
             var citizens = persons.OfType<Citizen>().ToList();
-
-            bool robbery = false;
-
+            var cops = persons.OfType<Cop>().ToList();
 
             foreach(var robber in robbers)
             {
                 foreach(var citizen in citizens)
                 {
+                    foreach (var cop in cops)
+                    {
+                        if (cop.X == robber.X && cop.Y == robber.Y)
+                        {
+                            news.Add("Tjuv blev tagen");
+
+                        }
+                    }
                     if (robber.X == citizen.X && robber.Y == citizen.Y)
                     {
-                        robbery = true;
                         news.Add("Medborgare blev rånad!");
                         robberyCount++;
-                        if (news.Count > 5)
-                        {
-                            news.RemoveAt(0);
-                        }
+                    }
+                    if (news.Count > 5)
+                    {
+                        news.RemoveAt(0);
                     }
                 }    
             }

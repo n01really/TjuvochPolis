@@ -39,9 +39,9 @@ namespace Tjuv_och_polis
                     Console.SetCursorPosition(Person.X, Person.Y);
                     Console.Write(Person.GetCharacter());
                     Console.ResetColor();
-                    collition.RobberCitizenCollition(persons, 2, Height + 4, newsWidth, newsHeight);
+                    collition.RobberCitizenCollition(persons, 1, Height + 3);
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
             }
         }
 

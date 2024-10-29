@@ -14,7 +14,7 @@ namespace Tjuv_och_polis
             int prisonHeight = 10;
 
             int newsWidth = 80;
-            int newsHeight = 15;
+            int newsHeight = 5;
 
             Collition collition = new Collition();
 

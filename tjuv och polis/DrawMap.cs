@@ -1,29 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tjuv_och_polis
 {
     internal class DrawMap
     {
-        public static void DrawBorder(int Height, int Width)
+        public static void DrawBorder(int startX, int startY, int width, int height)
         {
-            Console.BufferHeight = 150;
-            Console.BufferWidth = 300;
-            Console.SetWindowSize(1920, 1080);
-            for (int i = 0; i < Height; i++)
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+
+            // Top border
+            Console.SetCursorPosition(startX, startY);
+            Console.Write("╔");
+            for (int x = startX + 1; x < startX + width - 1; x++)
             {
-                for (int j = 0; j < Width; j++)
-                {
-                    if (i == 0 || i == Height - 1 || j == 0 || j == Width - 1)
-                    {
-                        Console.SetCursorPosition(i, j);
-                        Console.Write("x");
-                    }
-                }
+                Console.SetCursorPosition(x, startY);
+                Console.Write("═");
+            }
+            Console.SetCursorPosition(startX + width - 1, startY);
+            Console.Write("╗");
+
+
+            // Bottom border
+            Console.SetCursorPosition(startX, startY + height - 1);
+            Console.Write("╚");
+            for (int x = startX + 1; x < startX + width - 1; x++)
+            {
+                Console.SetCursorPosition(x, startY + height - 1);
+                Console.Write("═");
+            }
+            Console.SetCursorPosition(startX + width - 1, startY + height - 1);
+            Console.Write("╝");
+
+
+            // Left and right border
+            for (int y = startY + 1; y < startY + height - 1; y++)
+            {
+                Console.SetCursorPosition(startX, y);
+                Console.Write("║");
+                Console.SetCursorPosition(startX + width - 1, y);
+                Console.Write("║");
             }
         }
     }
 }
+

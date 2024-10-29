@@ -38,13 +38,13 @@ namespace Tjuv_och_polis
             Y += YDirection;
 
             X = Math.Clamp(X, 1, width - 2);
-            Y = Math.Clamp(Y, 1, height - 2);
+            Y = Math.Clamp(Y, 3, height - 2);
 
             if (X == width - 2 || X == 1)
             {
                 XDirection = -XDirection;
             }
-            if (Y == height - 2 || Y == 1)
+            if (Y == height - 2 || Y == 3)
             {
                 YDirection = -YDirection;
             }
@@ -67,7 +67,7 @@ namespace Tjuv_och_polis
         public override char GetCharacter()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            return 'R';
+            return 'T';
             
         }
     }
@@ -85,7 +85,7 @@ namespace Tjuv_och_polis
         public override char GetCharacter()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            return 'C';
+            return 'P';
             
         }
         
@@ -100,6 +100,10 @@ namespace Tjuv_och_polis
             XDirection = xDirection;
             YDirection = yDirection;
             Items = new List<Inventory>();
+            Items.Add(new Inventory("Wallet"));
+            Items.Add(new Inventory("Watch"));
+            Items.Add(new Inventory("Keys"));
+            Items.Add(new Inventory("Phone"));
         }
         public override char GetCharacter()
         {

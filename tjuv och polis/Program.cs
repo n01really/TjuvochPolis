@@ -12,6 +12,8 @@ namespace Tjuv_och_polis
             int prisonWidth = 20;
             int prisonHeight = 10;
 
+            Collition collition = new Collition();
+
             List<Person> persons = new List<Person>();
             Populate(Width, Height, persons);
 
@@ -31,8 +33,9 @@ namespace Tjuv_och_polis
                     Console.SetCursorPosition(Person.X, Person.Y);
                     Console.Write(Person.GetCharacter());
                     Console.ResetColor();
+                    collition.RobberCitizenCollition(persons);
                 }
-                Thread.Sleep(200);
+                Thread.Sleep(1000);
             }
         }
 

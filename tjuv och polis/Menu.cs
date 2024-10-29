@@ -28,17 +28,17 @@ namespace Tjuv_och_polis
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("\t\t\t  Fängelse");
             bool exit = false;
-            string input = Console.ReadLine();
+            ConsoleKeyInfo key = Console.ReadKey(true);
 
-            switch (input)
+            switch (key.Key)
             {
-                case "S":
+                case ConsoleKey.S:
                     StartSimulation();
                     break;
-                case "P":
+                case ConsoleKey.P:
                     PauseSimulation();
                     break;
-                case "Q":
+                case ConsoleKey.Q:
                     exit = true;
                     Console.WriteLine("Exiting the simulation...");
                     break;

@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Tjuv_och_polis
 {
@@ -12,6 +13,9 @@ namespace Tjuv_och_polis
             int prisonWidth = 20;
             int prisonHeight = 10;
 
+            int newsWidth = 80;
+            int newsHeight = 4;
+
             Collition collition = new Collition();
 
             List<Person> persons = new List<Person>();
@@ -23,6 +27,8 @@ namespace Tjuv_och_polis
             DrawMap.DrawBorder(0, 2, Width, Height);
 
             DrawMap.DrawBorder(Width + 2, 2, prisonWidth, prisonHeight);
+
+            DrawMap.DrawBorder(0, Height + 2, newsWidth, newsHeight);
 
             while (true)
             {

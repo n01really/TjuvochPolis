@@ -27,6 +27,7 @@ namespace Tjuv_och_polis
             Console.Write("[S] Start\t[P] Pause\t[R] Reset\t[Q] Exit");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("\t\t\t  Fängelse");
+            Console.WriteLine();
             bool exit = false;
             ConsoleKeyInfo key = Console.ReadKey(true);
 
@@ -40,10 +41,9 @@ namespace Tjuv_och_polis
                     break;
                 case ConsoleKey.Q:
                     exit = true;
-                    Console.WriteLine("Exiting the simulation...");
                     break;
                 default:
-                    Console.WriteLine("Invalid choice. Please select 1, 2, or 3.");
+                    Console.WriteLine("Invalid choice. Please select S, P, or Q.");
                     break;
             }
 

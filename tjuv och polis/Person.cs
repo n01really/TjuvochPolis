@@ -29,7 +29,7 @@ namespace Tjuv_och_polis
         {
             return ' ';
         }
-        public void Move(int width, int height)
+        public void Move(int wallLeft, int wallTop,int width, int height)
         {
             Console.SetCursorPosition(X, Y);
             Console.Write(" ");
@@ -40,11 +40,11 @@ namespace Tjuv_och_polis
             X = Math.Clamp(X, 1, width - 2);
             Y = Math.Clamp(Y, 3, height - 2);
 
-            if (X == width - 2 || X == 1)
+            if (X == width - 2 || X == wallLeft)
             {
                 XDirection = -XDirection;
             }
-            if (Y == height - 2 || Y == 3)
+            if (Y == height - 2 || Y == wallTop)
             {
                 YDirection = -YDirection;
             }
@@ -60,7 +60,7 @@ namespace Tjuv_och_polis
             Y = y;
             XDirection = xDirection;
             YDirection = yDirection;
-            Items = new List<Inventory>();
+            Items = items;
             Prison = prison;
         }
 
@@ -80,7 +80,7 @@ namespace Tjuv_och_polis
             Y = y;
             XDirection = xDirection;
             YDirection = yDirection;
-            Items = new List<Inventory>();
+            Items = items;
         }
         public override char GetCharacter()
         {
@@ -99,11 +99,7 @@ namespace Tjuv_och_polis
             Y = y;
             XDirection = xDirection;
             YDirection = yDirection;
-            Items = new List<Inventory>();
-            Items.Add(new Inventory("Wallet"));
-            Items.Add(new Inventory("Watch"));
-            Items.Add(new Inventory("Keys"));
-            Items.Add(new Inventory("Phone"));
+            Items = items;
         }
         public override char GetCharacter()
         {

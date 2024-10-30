@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,46 +10,60 @@ namespace Tjuv_och_polis
     internal class Collition
     {
         int robberyCount = 0;
-        List<string> news = new List<string>();
-        public void RobberCitizenCollition(List<Person> persons, int x, int y)
+        int arrestMade = 0;
+        Queue news = new Queue();
+        Random rnd = new Random();
+        public void CollitionManager(List<Person> persons, int x, int y, int jailStartX, int jailStartY, int jailWidth, int jailHeight)
         {
             var robbers = persons.OfType<Robber>().ToList();
             var citizens = persons.OfType<Citizen>().ToList();
             var cops = persons.OfType<Cop>().ToList();
 
-            foreach(var robber in robbers)
+            foreach (var robber in robbers)
             {
-                foreach(var citizen in citizens)
+                var citizen = citizens.FirstOrDefault(citizen => citizen.X == robber.X && citizen.Y == robber.Y && citizen.Items.Any());
+                if (citizen != null)
                 {
-                    foreach (var cop in cops)
-                    {
-                        if (cop.X == robber.X && cop.Y == robber.Y)
-                        {
-                            news.Add("Tjuv blev tagen");
+                    robberyCount++;
 
-                        }
-                    }
-                    if (robber.X == citizen.X && robber.Y == citizen.Y)
-                    {
-                        news.Add("Medborgare blev rånad!");
-                        robberyCount++;
-                    }
-                    if (news.Count > 5)
-                    {
-                        news.RemoveAt(0);
-                    }
-                }    
+                    int index = rnd.Next(citizen.Items.Count);
+                    Inventory itemRobbed = citizen.Items[index];
+
+                    citizen.Items.RemoveAt(index);
+                    robber.Items.Add(itemRobbed);
+                    news.Enqueue("Medborgare blev rånad! Han tog: " + itemRobbed);
+                }
+            }
+            foreach (var cop in cops)
+            {
+                var robber = robbers.FirstOrDefault(robber => robber.X == cop.X && robber.Y == cop.Y && robber.Items.Any());
+                if (robber != null)    
+                {
+                    news.Enqueue("Tjuv blev tagen");
+                    arrestMade++;
+
+                    cop.Items.AddRange(robber.Items);
+                    robber.Items.Clear();
+
+                    // robber.Move(jailStartX, jailStartY, jailWidth, jailHeight);
+                }
+
+            }
+            if (news.Count > 5)
+            {
+                news.Dequeue();
             }
             Console.SetCursorPosition(x, y);
-            Console.WriteLine($"Antal rån: {robberyCount}");
+            Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");
 
-
-            for (int i = news.Count - 1; i >= 0; i--)
+            if (news.Count > 0)
             {
-                Console.SetCursorPosition(x, y + 2 + i);
-                Console.WriteLine(news[i]);
+                for (int i = news.Count - 1; i >= 0; i--)
+                {
+                    Console.SetCursorPosition(x, y + 2 + i);
+                    Console.WriteLine(news.Peek());
+                }
             }
-            
         }
     }
 }

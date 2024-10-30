@@ -39,9 +39,9 @@ namespace Tjuv_och_polis
                     Console.SetCursorPosition(Person.X, Person.Y);
                     Console.Write(Person.GetCharacter());
                     Console.ResetColor();
-                    collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3,  prisonWidth, prisonHeight);
                 }
                 Thread.Sleep(1000);
+                collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3,  prisonWidth, prisonHeight);
             }
         }
 
@@ -68,7 +68,7 @@ namespace Tjuv_och_polis
                 persons.Add(new Robber(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>(), prison: false));
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 3; i++)
             {
                 var rndPos = PositionsGenerate.GeneratePosition(width, height, rnd);
                 persons.Add(new Cop(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>()));

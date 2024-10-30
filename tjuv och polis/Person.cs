@@ -53,7 +53,7 @@ namespace Tjuv_och_polis
 
     class Robber : Person
     {
-        bool Prison { get; set; }
+        public bool Prison { get; set; }
         public Robber(int x, int y, int xDirection, int yDirection, List<Inventory>items, bool prison) : base(x, y, xDirection, yDirection, items)
         {
             X = x;

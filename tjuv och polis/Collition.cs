@@ -19,9 +19,11 @@ namespace Tjuv_och_polis
             var citizens = persons.OfType<Citizen>().ToList();
             var cops = persons.OfType<Cop>().ToList();
 
+
             foreach (var robber in robbers)
             {
-                var citizen = citizens.FirstOrDefault(citizen => citizen.X == robber.X && citizen.Y == robber.Y && citizen.Items.Any());
+                var citizen = citizens.FirstOrDefault
+                    (citizen => citizen.X == robber.X && citizen.Y == robber.Y && citizen.Items.Any());
                 if (citizen != null)
                 {
                     robberyCount++;
@@ -31,7 +33,7 @@ namespace Tjuv_och_polis
 
                     citizen.Items.RemoveAt(index);
                     robber.Items.Add(itemRobbed);
-                    news.Enqueue("Medborgare blev rånad! Han tog: " + itemRobbed);
+                    news.Enqueue("Medborgare blev rånad! Han tog: " + itemRobbed.Items + "          ");
                 }
             }
             foreach (var cop in cops)
@@ -49,21 +51,18 @@ namespace Tjuv_och_polis
                 }
 
             }
-            if (news.Count > 5)
-            {
-                news.Dequeue();
-            }
+            //if (news.Count > 5)
+            //{
+            //    news.Dequeue();
+            //}
             Console.SetCursorPosition(x, y);
             Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");
 
-            if (news.Count > 0)
-            {
-                for (int i = news.Count - 1; i >= 0; i--)
+                if (news.Count > 0)
                 {
-                    Console.SetCursorPosition(x, y + 2 + i);
-                    Console.WriteLine(news.Peek());
+                    Console.SetCursorPosition(x, y + 2);
+                    Console.WriteLine(news.Dequeue());
                 }
-            }
         }
     }
 }

@@ -41,13 +41,14 @@ namespace Tjuv_och_polis
                 var robber = robbers.FirstOrDefault(robber => robber.X == cop.X && robber.Y == cop.Y && robber.Items.Any());
                 if (robber != null)    
                 {
-                    news.Enqueue("Tjuv blev tagen");
+                    news.Enqueue("Tjuv blev tagen                                                    ");
                     arrestMade++;
 
                     cop.Items.AddRange(robber.Items);
                     robber.Items.Clear();
-
-                    // robber.Move(jailStartX, jailStartY, jailWidth, jailHeight);
+                    robber.Prison = true;
+                    robber.X = jailStartX + 5;
+                    robber.Y = jailStartY + 5;
                 }
 
             }

@@ -31,20 +31,22 @@ namespace Tjuv_och_polis
         }
         public void Move(int wallLeft, int wallTop,int width, int height)
         {
+            int xWidth = wallLeft + width;
+            int yHeight = wallTop + height;
             Console.SetCursorPosition(X, Y);
             Console.Write(" ");
 
             X += XDirection;
             Y += YDirection;
 
-            X = Math.Clamp(X, 1, width - 2);
-            Y = Math.Clamp(Y, 3, height - 2);
+            X = Math.Clamp(X, wallLeft, xWidth - 2);
+            Y = Math.Clamp(Y, wallTop, yHeight - 2);
 
-            if (X == width - 2 || X == wallLeft)
+            if (X == xWidth - 3 || X == wallLeft)
             {
                 XDirection = -XDirection;
             }
-            if (Y == height - 2 || Y == wallTop)
+            if (Y == yHeight - 5 || Y == wallTop)
             {
                 YDirection = -YDirection;
             }

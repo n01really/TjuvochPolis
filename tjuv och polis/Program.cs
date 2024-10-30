@@ -34,13 +34,21 @@ namespace Tjuv_och_polis
             {
                 foreach (var Person in persons)
                 {
-                    Person.Move(1, 3, Width, Height+2);
+                    if (Person is Robber robber && robber.Prison)
+                    {
+                        robber.Move(prisonStartX + 1, 3, prisonWidth, prisonHeight + 2);
+                    }
+                    else
+                    {
+                        Person.Move(1, 3, Width, Height + 2);
+                    }
 
                     Console.SetCursorPosition(Person.X, Person.Y);
                     Console.Write(Person.GetCharacter());
                     Console.ResetColor();
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
+
                 collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3,  prisonWidth, prisonHeight);
             }
         }
@@ -68,7 +76,7 @@ namespace Tjuv_och_polis
                 persons.Add(new Robber(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>(), prison: false));
             }
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 30; i++)
             {
                 var rndPos = PositionsGenerate.GeneratePosition(width, height, rnd);
                 persons.Add(new Cop(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>()));

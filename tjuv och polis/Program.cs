@@ -15,7 +15,7 @@ namespace Tjuv_och_polis
 
             int newsWidth = 80, newsHeight = 15;
 
-            bool gameState;
+            bool gameState = true;
 
             Collition collition = new Collition();
 
@@ -23,7 +23,7 @@ namespace Tjuv_och_polis
             Populate(Width, Height, persons);
 
             Menu.Title();
-            Menu.Buttons(gameState);
+            Menu.Buttons();
 
             //Rita staden
             DrawMap.DrawBorder(X, Y, Width, Height);
@@ -32,9 +32,7 @@ namespace Tjuv_och_polis
             //Rita newsFeed
             DrawMap.DrawBorder(X, Height + Y, newsWidth, newsHeight);
 
-            while (true)
-            {
-                if (gameState)
+                while (true)
                 {
                     foreach (var Person in persons)
                     {
@@ -55,11 +53,6 @@ namespace Tjuv_och_polis
 
                     collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight);
                 }
-                else
-                {
-
-                }
-            }
         }
 
         public static void Populate(int width, int height, List<Person> persons)

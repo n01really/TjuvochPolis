@@ -59,11 +59,11 @@ namespace Tjuv_och_polis
             Console.SetCursorPosition(x, y);
             Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");
 
-                if (news.Count > 0)
-                {
-                    Console.SetCursorPosition(x, y + 2);
-                    Console.WriteLine(news.Dequeue());
-                }
+            if (news.Count > 0)
+            {
+                Console.SetCursorPosition(x, y + 2);
+                Console.WriteLine(news.Dequeue());
+            }
         }
     }
 }

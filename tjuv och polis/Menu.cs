@@ -20,7 +20,7 @@ namespace Tjuv_och_polis
         }
 
         static bool isRunning = false;
-        public static void Buttons(bool gameState)
+        public static void Buttons()
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
@@ -33,22 +33,19 @@ namespace Tjuv_och_polis
             switch (key.Key)
             {
                 case ConsoleKey.S:
-                    StartSimulation();
+                    //StartSimulation();
                     break;
                 case ConsoleKey.P:
                     PauseSimulation();
                     break;
                 case ConsoleKey.D:
-                    if (gameState) { gameState = false; }
-                    else { gameState = true; }
-
                     break;
                 case ConsoleKey.Q:
                     Environment.Exit(0);
                     break;
                 case ConsoleKey.R:
-                    Program.Main();
                     Console.Clear();
+                    Program.Main();
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please select S, P, or Q.");
@@ -58,19 +55,19 @@ namespace Tjuv_och_polis
 
             
         }
-        static void StartSimulation()
-        {
-            if (isRunning)
-            {
-                Console.WriteLine("Simulation is already running.");
-            }
-            else
-            {
-                isRunning = true;
-                Console.WriteLine("Starting the Cops and Robbers simulation...");
-                // Simulation logic would go here.
-            }
-        }
+        //static void StartSimulation()
+        //{
+        //    if (isRunning)
+        //    {
+        //        Console.WriteLine("Simulation is already running.");
+        //    }
+        //    else
+        //    {
+        //        isRunning = true;
+        //        Console.WriteLine("Starting the Cops and Robbers simulation...");
+        //        // Simulation logic would go here.
+        //    }
+        //}
 
         static void PauseSimulation()
         {

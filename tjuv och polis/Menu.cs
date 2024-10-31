@@ -20,7 +20,7 @@ namespace Tjuv_och_polis
         }
 
         static bool isRunning = false;
-        public static void Buttons()
+        public static void Buttons(List<Person>persons)
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
@@ -33,6 +33,7 @@ namespace Tjuv_och_polis
             switch (key.Key)
             {
                 case ConsoleKey.S:
+                    Simulation.Run(persons);
                     //StartSimulation();
                     break;
                 case ConsoleKey.P:

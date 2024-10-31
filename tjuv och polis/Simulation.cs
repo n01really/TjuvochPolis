@@ -62,6 +62,7 @@ namespace Tjuv_och_polis
                             Menu.PauseSimulation();
                             break;
                         case ConsoleKey.D:
+                            Data.DataWindow();
                             break;
                         case ConsoleKey.Q:
                             Environment.Exit(0);

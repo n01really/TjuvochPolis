@@ -24,7 +24,7 @@ namespace Tjuv_och_polis
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("[S] Start\t[P] Pause\t[D] Data\t[Q] Exit");
+            Console.Write("[S] Start\t[P] Pause\t[D] Data\t[R] Reset\t [Q] Exit");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("\t\t\t  Fängelse");
             Console.WriteLine();

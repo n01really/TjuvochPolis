@@ -22,9 +22,6 @@ namespace Tjuv_och_polis
 
             Collition collition = new Collition();
 
-            Console.WriteLine();
-            Console.WriteLine();
-
             //Rita staden
             DrawMap.DrawBorder(X, Y, Width, Height);
             //Rita fängelse

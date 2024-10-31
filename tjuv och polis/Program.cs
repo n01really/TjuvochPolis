@@ -15,13 +15,15 @@ namespace Tjuv_och_polis
 
             int newsWidth = 80, newsHeight = 15;
 
+            bool gameState;
+
             Collition collition = new Collition();
 
             List<Person> persons = new List<Person>();
             Populate(Width, Height, persons);
 
             Menu.Title();
-            Menu.Buttons();
+            Menu.Buttons(gameState);
 
             //Rita staden
             DrawMap.DrawBorder(X, Y, Width, Height);
@@ -32,24 +34,31 @@ namespace Tjuv_och_polis
 
             while (true)
             {
-                foreach (var Person in persons)
+                if (gameState)
                 {
-                    if (Person is Robber robber && robber.Prison)
+                    foreach (var Person in persons)
                     {
-                        robber.Move(prisonStartX + 1, 3, prisonWidth, prisonHeight + 2);
-                    }
-                    else
-                    {
-                        Person.Move(1, 3, Width, Height + 2);
-                    }
+                        if (Person is Robber robber && robber.Prison)
+                        {
+                            robber.Move(prisonStartX + 1, 3, prisonWidth, prisonHeight + 2);
+                        }
+                        else
+                        {
+                            Person.Move(1, 3, Width, Height + 2);
+                        }
 
-                    Console.SetCursorPosition(Person.X, Person.Y);
-                    Console.Write(Person.GetCharacter());
-                    Console.ResetColor();
+                        Console.SetCursorPosition(Person.X, Person.Y);
+                        Console.Write(Person.GetCharacter());
+                        Console.ResetColor();
+                    }
+                    Thread.Sleep(100);
+
+                    collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight);
                 }
-                Thread.Sleep(100);
+                else
+                {
 
-                collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3,  prisonWidth, prisonHeight);
+                }
             }
         }
 

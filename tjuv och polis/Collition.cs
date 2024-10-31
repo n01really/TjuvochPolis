@@ -33,7 +33,9 @@ namespace Tjuv_och_polis
 
                     citizen.Items.RemoveAt(index);
                     robber.Items.Add(itemRobbed);
-                    news.Enqueue("Medborgare blev rånad! Han tog: " + itemRobbed.Items + "          ");
+                    
+                    news.Enqueue(DateTime.Now + " Medborgare blev rånad! Han tog: " + itemRobbed.Items + "          ");
+                    
                 }
             }
             foreach (var cop in cops)
@@ -41,7 +43,9 @@ namespace Tjuv_och_polis
                 var robber = robbers.FirstOrDefault(robber => robber.X == cop.X && robber.Y == cop.Y && robber.Items.Any());
                 if (robber != null)    
                 {
-                    news.Enqueue("Tjuv blev tagen                                                    ");
+                    
+                    news.Enqueue(DateTime.Now + " Tjuv blev tagen                                                    ");
+                    
                     arrestMade++;
 
                     cop.Items.AddRange(robber.Items);

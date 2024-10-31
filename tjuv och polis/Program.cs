@@ -5,7 +5,7 @@ namespace Tjuv_och_polis
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             int X = 0, Y = 2;
             int Width = 80, Height = 20;

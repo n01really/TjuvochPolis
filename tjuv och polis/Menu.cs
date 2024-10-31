@@ -42,6 +42,10 @@ namespace Tjuv_och_polis
                 case ConsoleKey.Q:
                     exit = true;
                     break;
+                case ConsoleKey.R:
+                    Program.Main();
+                    Console.Clear();
+                    break;
                 default:
                     Console.WriteLine("Invalid choice. Please select S, P, or Q.");
                     break;

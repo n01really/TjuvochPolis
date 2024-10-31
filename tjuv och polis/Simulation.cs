@@ -52,6 +52,34 @@ namespace Tjuv_och_polis
                 Thread.Sleep(100);
 
                 collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight);
+
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true);
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.S:
+                            Simulation.Run(persons);
+                            break;
+                        case ConsoleKey.P:
+                            Menu.PauseSimulation();
+                            break;
+                        case ConsoleKey.D:
+                            break;
+                        case ConsoleKey.Q:
+                            Environment.Exit(0);
+                            break;
+                        case ConsoleKey.R:
+                            Console.Clear();
+                            Program.Main();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice. Please select S, P, or Q.");
+                            Console.Clear();
+                            Program.Main();
+                            break;
+                    }
+                }
             }
         }
     }

@@ -72,17 +72,11 @@ namespace Tjuv_och_polis
         //    }
         //}
 
-        static void PauseSimulation()
+        public static void PauseSimulation()
         {
-            if (isRunning)
+            while (!Console.KeyAvailable)
             {
-                isRunning = false;
-                Console.WriteLine("Simulation is paused.");
-                // Additional logic to handle the pause can go here.
-            }
-            else
-            {
-                Console.WriteLine("Simulation is not running.");
+                Thread.Sleep(100);
             }
         }
 

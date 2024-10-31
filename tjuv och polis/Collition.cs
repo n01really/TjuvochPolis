@@ -44,7 +44,7 @@ namespace Tjuv_och_polis
                 if (robber != null)    
                 {
                     
-                    news.Enqueue(DateTime.Now + " Tjuv blev tagen                                                    ");
+                    news.Enqueue(DateTime.Now.ToString("HH:mm") + " Tjuv blev tagen                                                    ");
                     
                     arrestMade++;
 

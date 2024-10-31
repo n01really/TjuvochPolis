@@ -58,9 +58,6 @@ namespace Tjuv_och_polis
                     ConsoleKeyInfo key = Console.ReadKey(true);
                     switch (key.Key)
                     {
-                        case ConsoleKey.S:
-                            Simulation.Run(persons);
-                            break;
                         case ConsoleKey.P:
                             Menu.PauseSimulation();
                             break;
@@ -71,11 +68,6 @@ namespace Tjuv_och_polis
                             Environment.Exit(0);
                             break;
                         case ConsoleKey.R:
-                            Console.Clear();
-                            Program.Main();
-                            break;
-                        default:
-                            Console.WriteLine("Invalid choice. Please select S, P, or Q.");
                             Console.Clear();
                             Program.Main();
                             break;

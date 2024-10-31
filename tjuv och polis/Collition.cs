@@ -34,7 +34,7 @@ namespace Tjuv_och_polis
                     citizen.Items.RemoveAt(index);
                     robber.Items.Add(itemRobbed);
                     
-                    news.Enqueue(DateTime.Now + " Medborgare blev rånad! Han tog: " + itemRobbed.Items + "          ");
+                    news.Enqueue(DateTime.Now.ToString("HH:mm") + " Medborgare blev rånad! Han tog: " + itemRobbed.Items + "          ");
                     
                 }
             }

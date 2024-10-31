@@ -20,11 +20,11 @@ namespace Tjuv_och_polis
         }
 
         static bool isRunning = false;
-        public static void Buttons()
+        public static void Buttons(bool gameState)
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("[S] Start\t[P] Pause\t[R] Data\t[Q] Exit");
+            Console.Write("[S] Start\t[P] Pause\t[D] Data\t[Q] Exit");
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.Write("\t\t\t  Fängelse");
             Console.WriteLine();
@@ -37,6 +37,11 @@ namespace Tjuv_och_polis
                     break;
                 case ConsoleKey.P:
                     PauseSimulation();
+                    break;
+                case ConsoleKey.D:
+                    if (gameState) { gameState = false; }
+                    else { gameState = true; }
+
                     break;
                 case ConsoleKey.Q:
                     Environment.Exit(0);

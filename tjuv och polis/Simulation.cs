@@ -22,15 +22,15 @@ namespace Tjuv_och_polis
 
             Collition collition = new Collition();
 
-            Console.WriteLine();
-            Console.WriteLine();
-
             //Rita staden
             DrawMap.DrawBorder(X, Y, Width, Height);
             //Rita fängelse
             DrawMap.DrawBorder(prisonStartX, Y, prisonWidth, prisonHeight);
             //Rita newsFeed
             DrawMap.DrawBorder(X, Height + Y, newsWidth, newsHeight);
+
+            Console.SetCursorPosition(prisonStartX, 1);
+            Console.Write("Fängelse");
 
             while (true)
             {

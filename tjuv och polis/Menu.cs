@@ -50,6 +50,8 @@ namespace Tjuv_och_polis
                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please select S, P, or Q.");
+                    Console.Clear();
+                    Program.Main();
                     break;
             }
 

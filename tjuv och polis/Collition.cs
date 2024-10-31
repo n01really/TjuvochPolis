@@ -67,6 +67,7 @@ namespace Tjuv_och_polis
             if (news.Count > 0)
             {
                 Console.SetCursorPosition(x, y + 2);
+                Console.Beep();
                 Console.WriteLine(news.Dequeue());
                 Thread.Sleep(1500);
             }

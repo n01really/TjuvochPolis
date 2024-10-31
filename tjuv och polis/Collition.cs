@@ -33,9 +33,10 @@ namespace Tjuv_och_polis
 
                     citizen.Items.RemoveAt(index);
                     robber.Items.Add(itemRobbed);
+                    Console.SetCursorPosition(citizen.X, citizen.Y);
+                    Console.Write("X");
                     
-                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Medborgare blev rånad! Han tog: " + itemRobbed.Items + "          ");
-                    
+                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Medborgare blev rånad! Han tog: " + itemRobbed.Items + ". Plats: " + citizen.X + ":" + citizen.Y);
                 }
             }
             foreach (var cop in cops)
@@ -67,6 +68,7 @@ namespace Tjuv_och_polis
             {
                 Console.SetCursorPosition(x, y + 2);
                 Console.WriteLine(news.Dequeue());
+                Thread.Sleep(1500);
             }
         }
     }

@@ -62,7 +62,7 @@ namespace Tjuv_och_polis
                 }
 
             }
-            if (news.Count > 5)
+            while (news.Count > 5)
             {
                 news.Dequeue();
             }

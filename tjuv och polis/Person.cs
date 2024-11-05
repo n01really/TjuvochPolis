@@ -29,6 +29,10 @@ namespace Tjuv_och_polis
         {
             return ' ';
         }
+        public virtual string toString()
+        {
+            return "Person";
+        }
         public void Move(int wallLeft, int wallTop,int width, int height)
         {
             int xWidth = wallLeft + width;
@@ -72,6 +76,11 @@ namespace Tjuv_och_polis
             return 'T';
             
         }
+
+        public override string ToString()
+        {
+            return "Rånare";
+        }
     }
 
     class Cop : Person 
@@ -90,7 +99,10 @@ namespace Tjuv_och_polis
             return 'P';
             
         }
-        
+        public override string ToString()
+        {
+            return "Polis";
+        }
     }
 
     class Citizen : Person
@@ -108,6 +120,10 @@ namespace Tjuv_och_polis
             Console.ForegroundColor = ConsoleColor.Green;
             return 'M';
             
+        }
+        public override string toString()
+        {
+            return "Medborgare";
         }
     }
 }

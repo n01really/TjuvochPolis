@@ -14,7 +14,7 @@ namespace Tjuv_och_polis
             Console.Clear();
             foreach (Person person in persons)
             {
-                Console.WriteLine($"{person.GetType()}:");
+                Console.Write($"{person}: ");
                 if (person.Items != null && person.Items.Count > 0)
                 {
                     foreach (var item in person.Items)
@@ -26,7 +26,7 @@ namespace Tjuv_och_polis
                 {
                     Console.Write("No items found.");
                 }
-                Console.Write($"-Position: { person.X}:{ person.Y}, in the direction of: { person.XDirection}:{ person.YDirection}");
+                Console.WriteLine($"-Position: { person.X}:{ person.Y}. Riktning: { person.XDirection}:{ person.YDirection}");
             }
             Console.WriteLine();
             Menu.Title();

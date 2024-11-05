@@ -71,7 +71,7 @@ namespace Tjuv_och_polis
             {
                 for (int i = 0; i < newsArray.Length; i++) 
                 {
-                    var newsItem = newsArray[i];
+                    var newsItem = newsArray[newsArray.Length - 1 - i];
                     Console.SetCursorPosition(x, y + 2 + i);
                     Console.WriteLine(newsItem);
                     //Console.Beep();

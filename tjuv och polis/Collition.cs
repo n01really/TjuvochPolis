@@ -42,18 +42,19 @@ namespace Tjuv_och_polis
             foreach (var cop in cops)
             {
                 var robber = robbers.FirstOrDefault(robber => robber.X == cop.X && robber.Y == cop.Y && robber.Items.Any());
-                if (robber != null)    
+                if (robber != null)  //koden behandlar vad som händer när en tjuv och polis mötts  
                 {
                     
                     news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuv blev tagen! Plats: " + robber.X + ":" + robber.Y + "                                  ");
-                    
-                    arrestMade++;
+                    //koden skriver ut händelsn när en tjuv och polis möts med relevant informatin som Time and Place
+                    arrestMade++;//ökar informationen om hur många tjuvar har blivit tagna
 
                     cop.Items.AddRange(robber.Items);
                     robber.Items.Clear();
                     robber.Prison = true;
                     robber.X = jailStartX + 5;
                     robber.Y = jailStartY + 5;
+                    //När tjuven är tagen så får polisen allt som tjuven har taggit och tjuvens inventarie blir tömt, tjuven blir sed för flyttad till fängelse.
                 }
 
             }
@@ -62,7 +63,7 @@ namespace Tjuv_och_polis
                 news.Dequeue();
             }
             Console.SetCursorPosition(x, y);
-            Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");
+            Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");//Koden skriver ut hur många rån som har skett och hur många tjuvar som har blivt tgana
 
             object[] newsArray = news.ToArray();
 

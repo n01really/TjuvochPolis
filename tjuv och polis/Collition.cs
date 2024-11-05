@@ -36,7 +36,7 @@ namespace Tjuv_och_polis
                     Console.SetCursorPosition(citizen.X, citizen.Y);
                     Console.Write("X");
                     
-                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Medborgare blev rånad! Han tog: " + itemRobbed.Items + ". Plats: " + citizen.X + ":" + citizen.Y + "           ");
+                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Medborgare blev rånad! Han tog " + itemRobbed.Items + "! Plats: " + citizen.X + ":" + citizen.Y + "           ");
                 }
             }
             foreach (var cop in cops)

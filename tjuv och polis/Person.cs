@@ -29,10 +29,6 @@ namespace Tjuv_och_polis
         {
             return ' ';
         }
-        public virtual string toString()
-        {
-            return "Person";
-        }
         public void Move(int wallLeft, int wallTop,int width, int height)
         {
             int xWidth = wallLeft + width;
@@ -121,7 +117,7 @@ namespace Tjuv_och_polis
             return 'M';
             
         }
-        public override string toString()
+        public override string ToString()
         {
             return "Medborgare";
         }

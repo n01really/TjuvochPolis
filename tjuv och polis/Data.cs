@@ -17,6 +17,7 @@ namespace Tjuv_och_polis
                 Console.Write($"{person}: ");
                 if (person.Items != null && person.Items.Count > 0)
                 {
+                    Console.Write("Innehav: ");
                     foreach (var item in person.Items)
                     {
                         Console.Write($"{item}, ");

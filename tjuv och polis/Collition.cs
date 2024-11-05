@@ -57,19 +57,26 @@ namespace Tjuv_och_polis
                 }
 
             }
-            //if (news.Count > 5)
-            //{
-            //    news.Dequeue();
-            //}
+            if (news.Count > 5)
+            {
+                news.Dequeue();
+            }
             Console.SetCursorPosition(x, y);
             Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");
 
+            object[] newsArray = news.ToArray();
+
             if (news.Count > 0)
             {
-                Console.SetCursorPosition(x, y + 2);
-                Console.Beep();
-                Console.WriteLine(news.Dequeue());
-                Thread.Sleep(1500);
+                for (int i = 0; i < newsArray.Length; i++) 
+                {
+                    var newsItem = newsArray[i];
+                    Console.SetCursorPosition(x, y + 2 + i);
+                    Console.WriteLine(newsItem);
+                    //Console.Beep();
+                    //Thread.Sleep(1500);
+                }
+                        
             }
         }
     }

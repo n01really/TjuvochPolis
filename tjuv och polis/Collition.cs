@@ -33,6 +33,8 @@ namespace Tjuv_och_polis
 
                     citizen.Items.RemoveAt(index);
                     robber.Items.Add(itemRobbed);
+                    Console.Beep();
+                    //Thread.Sleep(1500);
                     Console.SetCursorPosition(citizen.X, citizen.Y);
                     Console.Write("X");
                     
@@ -52,6 +54,8 @@ namespace Tjuv_och_polis
                     cop.Items.AddRange(robber.Items);
                     robber.Items.Clear();
                     robber.Prison = true;
+                    Console.Beep();
+                    //Thread.Sleep(1500);
                     robber.X = jailStartX + 5;
                     robber.Y = jailStartY + 5;
                     //När tjuven är tagen så får polisen allt som tjuven har taggit och tjuvens inventarie blir tömt, tjuven blir sed för flyttad till fängelse.
@@ -74,10 +78,10 @@ namespace Tjuv_och_polis
                     var newsItem = newsArray[newsArray.Length - 1 - i];
                     Console.SetCursorPosition(x, y + 2 + i);
                     Console.WriteLine(newsItem);
-                    //Console.Beep();
-                    //Thread.Sleep(1500);
+
+
                 }
-                        
+
             }
         }
     }

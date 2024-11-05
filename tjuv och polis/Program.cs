@@ -25,10 +25,10 @@ namespace Tjuv_och_polis
                 var rndPos = PositionsGenerate.GeneratePosition(width, height, rnd);
                 persons.Add(new Citizen(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>
                 {
-                new Inventory("Wallet"),
-                new Inventory("Watch"),
-                new Inventory("Keys"),
-                new Inventory("Phone")
+                new Inventory("plonkan"),
+                new Inventory("klockan"),
+                new Inventory("nyklarna"),
+                new Inventory("telefonen")
                 }));
             }
 

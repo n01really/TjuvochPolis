@@ -13,5 +13,9 @@ namespace Tjuv_och_polis
         {
             Items = items;
         }
+        public override string ToString()
+        {
+            return Items;
+        }
     }
 }

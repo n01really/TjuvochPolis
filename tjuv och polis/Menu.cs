@@ -17,30 +17,31 @@ namespace Tjuv_och_polis
             Console.Write("& ");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("Polis");
-        }
-
-        static bool isRunning = false;
-        public static void Buttons(List<Person>persons)
-        {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("[S] Start\t[P] Pause\t[D] Data\t[R] Reset\t [Q] Exit");
+            Console.Write("[S] Start\t[P] Pause\t[D] Data\t[R] Reset\t [Q] Exit " + isRunning);
             //Console.ForegroundColor = ConsoleColor.DarkGray;
             //Console.Write("\t\t\t  Fängelse");
             Console.WriteLine();
+        }
+
+        private static bool isRunning = false;
+        public static void Buttons(List<Person>persons)
+        {
             ConsoleKeyInfo key = Console.ReadKey(true);
 
             switch (key.Key)
             {
                 case ConsoleKey.S:
-                    Simulation.Run(persons);
+                    isRunning = true;
+                    Simulation.Run(persons,  isRunning);
                     //StartSimulation();
                     break;
                 case ConsoleKey.P:
                     PauseSimulation();
                     break;
                 case ConsoleKey.D:
-                    Data.DataWindow(persons);
+                    Data.DataWindow(persons, isRunning);
                     break;
                 case ConsoleKey.Q:
                     Environment.Exit(0);

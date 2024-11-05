@@ -8,8 +8,10 @@ namespace Tjuv_och_polis
 {
     internal class Data
     {
-        public static void DataWindow(List<Person>persons)
+        public static void DataWindow(List<Person>persons, bool isRunning)
         {
+            isRunning = false;
+            Console.Clear();
             foreach (Person person in persons)
             {
                 Console.WriteLine($"{person.GetType()}:");
@@ -26,6 +28,10 @@ namespace Tjuv_och_polis
                 }
                 Console.Write($"-Position: { person.X}:{ person.Y}, in the direction of: { person.XDirection}:{ person.YDirection}");
             }
+            Console.WriteLine();
+            Menu.Title();
+            Menu.Buttons(persons);
+            Console.ReadKey();
         }
     }
 }

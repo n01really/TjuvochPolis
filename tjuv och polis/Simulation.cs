@@ -8,19 +8,20 @@ namespace Tjuv_och_polis
 {
     internal class Simulation
     {
-        public static void Run(List<Person>persons)
+        private static int X = 0, Y = 2;
+        private static int Width = 80, Height = 20;
+
+        private static int prisonStartX = Width + 2;
+        private static int prisonWidth = 20, prisonHeight = 10;
+
+        private static int newsWidth = 80, newsHeight = 15;
+        
+        private static Collition collition = new Collition();
+        public static void Run(List<Person>persons, bool isRunning)
         {
-            int X = 0, Y = 2;
-            int Width = 80, Height = 20;
-
-            int prisonStartX = Width + 2;
-            int prisonWidth = 20, prisonHeight = 10;
-
-            int newsWidth = 80, newsHeight = 15;
-
-            bool gameState = true;
-
-            Collition collition = new Collition();
+            Console.Clear();
+            
+            Menu.Title();
 
             //Rita staden
             DrawMap.DrawBorder(X, Y, Width, Height);
@@ -32,7 +33,7 @@ namespace Tjuv_och_polis
             Console.SetCursorPosition(prisonStartX, 1);
             Console.Write("Fängelse");
 
-            while (true)
+            while (isRunning)
             {
                 foreach (var Person in persons)
                 {
@@ -55,23 +56,7 @@ namespace Tjuv_och_polis
 
                 if (Console.KeyAvailable)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey(true);
-                    switch (key.Key)
-                    {
-                        case ConsoleKey.P:
-                            Menu.PauseSimulation();
-                            break;
-                        case ConsoleKey.D:
-                            Data.DataWindow(persons);
-                            break;
-                        case ConsoleKey.Q:
-                            Environment.Exit(0);
-                            break;
-                        case ConsoleKey.R:
-                            Console.Clear();
-                            Program.Main();
-                            break;
-                    }
+                    Menu.Buttons(persons);
                 }
             }
         }

@@ -8,10 +8,24 @@ namespace Tjuv_och_polis
 {
     internal class Data
     {
-        public static void DataWindow()
+        public static void DataWindow(List<Person>persons)
         {
-            Console.Clear();
-            Console.WriteLine("Hej");
+            foreach (Person person in persons)
+            {
+                Console.WriteLine($"{person.GetType()}:");
+                if (person.Items != null && person.Items.Count > 0)
+                {
+                    foreach (var item in person.Items)
+                    {
+                        Console.Write($"{item}, ");
+                    }
+                }
+                else
+                {
+                    Console.Write("No items found.");
+                }
+                Console.Write($"-Position: { person.X}:{ person.Y}, in the direction of: { person.XDirection}:{ person.YDirection}");
+            }
         }
     }
 }

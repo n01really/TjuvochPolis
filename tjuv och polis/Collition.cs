@@ -86,14 +86,29 @@ namespace Tjuv_och_polis
             Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");//Koden skriver ut hur många rån som har skett och hur många tjuvar som har blivt tgana
 
             object[] newsArray = news.ToArray();
-
+            Console.SetCursorPosition(x, y+1);
+            Console.WriteLine("Nyheter:");
             if (news.Count > 0)
             {
                 for (int i = 0; i < newsArray.Length; i++) 
                 {
+                    if (i > 2)
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                    }
+                    else if (i > 0)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor= ConsoleColor.White;
+                    }
+
                     var newsItem = newsArray[newsArray.Length - 1 - i];
                     Console.SetCursorPosition(x, y + 2 + i);
                     Console.WriteLine(newsItem);
+                    
 
 
                 }

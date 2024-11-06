@@ -40,7 +40,7 @@ namespace Tjuv_och_polis
             for (int i = 0; i < 10; i++)
             {
                 var rndPos = PositionsGenerate.GeneratePosition(width, height, rnd);
-                persons.Add(new Robber(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>(), prison: false, names[i+20]));
+                persons.Add(new Robber(rndPos.X, rndPos.Y, rndPos.XDirection, rndPos.YDirection, new List<Inventory>(), prison: false, names[i + 20], 0));
             }
 
             for (int i = 0; i < 10; i++)

@@ -41,6 +41,10 @@ namespace Tjuv_och_polis
                     {
                         robber.Move(prisonStartX + 1, 3, prisonWidth, prisonHeight + 2);
                         robber.PrisonTime--;
+                        if (robber.PrisonTime == 0)
+                        {
+                            robber.Prison = false;
+                        }
                     }
                     else
                     {

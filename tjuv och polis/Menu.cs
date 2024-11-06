@@ -54,8 +54,8 @@ namespace Tjuv_och_polis
                     Program.Main();
                     break;
                 default:
-                    Console.WriteLine("Invalid choice. Please select S, P, or Q.");
                     Console.Clear();
+                    Console.WriteLine("Fel knappval. Välj ett val i menyn!");
                     Program.Main();
                     break;
             }

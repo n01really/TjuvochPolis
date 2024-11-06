@@ -58,7 +58,8 @@ namespace Tjuv_och_polis
     class Robber : Person
     {
         public bool Prison { get; set; }
-        public Robber(int x, int y, int xDirection, int yDirection, List<Inventory>items, bool prison, string name) : base(x, y, xDirection, yDirection, items, name)
+        public int PrisonTime { get; set; }
+        public Robber(int x, int y, int xDirection, int yDirection, List<Inventory>items, bool prison, string name, int prisonTime) : base(x, y, xDirection, yDirection, items, name)
         {
             X = x;
             Y = y;
@@ -66,6 +67,7 @@ namespace Tjuv_och_polis
             YDirection = yDirection;
             Items = items;
             Prison = prison;
+            PrisonTime = prisonTime;
         }
 
         public override char GetCharacter()

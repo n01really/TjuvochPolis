@@ -40,6 +40,7 @@ namespace Tjuv_och_polis
                     if (Person is Robber robber && robber.Prison)
                     {
                         robber.Move(prisonStartX + 1, 3, prisonWidth, prisonHeight + 2);
+                        robber.PrisonTime--;
                     }
                     else
                     {

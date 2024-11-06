@@ -61,6 +61,11 @@ namespace Tjuv_och_polis
                     news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuven " + robber.Name + " blev tagen av polisen " + cop.Name +"! Plats: " + robber.X + ":" + robber.Y + "                     ");
                     //koden skriver ut händelsn när en tjuv och polis möts med relevant informatin som Time and Place
                     arrestMade++;//ökar informationen om hur många tjuvar har blivit tagna
+                   
+                    foreach(var item in robber.Items)
+                    {
+                        robber.PrisonTime += 1000;
+                    }
 
                     cop.Items.AddRange(robber.Items);
                     robber.Items.Clear();

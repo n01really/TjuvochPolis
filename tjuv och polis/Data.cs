@@ -28,6 +28,8 @@ namespace Tjuv_och_polis
                     Console.Write("Inga föremål hittade.");
                 }
                 Console.WriteLine($" - Position: { person.X}:{ person.Y}. Riktning: { person.XDirection}:{ person.YDirection}");
+                if (person is Robber robber)
+                { Console.WriteLine(robber.PrisonTime); }
             }
             Console.WriteLine();
             Menu.Title();

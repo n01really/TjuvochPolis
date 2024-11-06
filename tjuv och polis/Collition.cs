@@ -64,7 +64,7 @@ namespace Tjuv_och_polis
                    
                     foreach(var item in robber.Items)
                     {
-                        robber.PrisonTime += 1000;
+                        robber.PrisonTime += 100;
                     }
 
                     cop.Items.AddRange(robber.Items);

@@ -44,6 +44,8 @@ namespace Tjuv_och_polis
                         if (robber.PrisonTime == 0)
                         {
                             robber.Prison = false;
+                            robber.X = 10;
+                            robber.Y = 10;
                         }
                     }
                     else

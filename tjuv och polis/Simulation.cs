@@ -52,7 +52,7 @@ namespace Tjuv_och_polis
                 }
                 Thread.Sleep(100);
 
-                collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight);
+                collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight, Menu.reset);
 
                 if (Console.KeyAvailable)
                 {

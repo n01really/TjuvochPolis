@@ -26,6 +26,7 @@ namespace Tjuv_och_polis
         }
 
         private static bool isRunning = false;
+        public static bool reset = false;
         public static void Buttons(List<Person>persons)
         {
             ConsoleKeyInfo key = Console.ReadKey(true);
@@ -34,6 +35,7 @@ namespace Tjuv_och_polis
             {
                 case ConsoleKey.S:
                     isRunning = true;
+                    Console.Clear();
                     Simulation.Run(persons,  isRunning);
                     //StartSimulation();
                     break;
@@ -47,6 +49,7 @@ namespace Tjuv_och_polis
                     Environment.Exit(0);
                     break;
                 case ConsoleKey.R:
+                    reset = true;
                     Console.Clear();
                     Program.Main();
                     break;

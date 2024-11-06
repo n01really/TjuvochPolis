@@ -13,12 +13,22 @@ namespace Tjuv_och_polis
         int arrestMade = 0;
         Queue news = new Queue();
         Random rnd = new Random();
-        public void CollitionManager(List<Person> persons, int x, int y, int jailStartX, int jailStartY, int jailWidth, int jailHeight)
+        public void CollitionManager(List<Person> persons, int x, int y, int jailStartX, int jailStartY, int jailWidth, int jailHeight, bool reset)
         {
             var robbers = persons.OfType<Robber>().ToList();
             var citizens = persons.OfType<Citizen>().ToList();
             var cops = persons.OfType<Cop>().ToList();
 
+            if (reset = true)
+            {
+                robberyCount = 0;
+                arrestMade = 0;
+                while (news.Count > 0)
+                {
+                    news.Dequeue();
+                }
+                reset = false;
+            }
 
             foreach (var robber in robbers)
             {

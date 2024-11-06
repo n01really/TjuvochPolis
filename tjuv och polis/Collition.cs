@@ -49,7 +49,7 @@ namespace Tjuv_och_polis
                     Console.SetCursorPosition(citizen.X, citizen.Y);
                     Console.Write("X");
                     
-                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Medborgare blev rånad! Han tog " + itemRobbed.Items + "! Plats: " + citizen.X + ":" + citizen.Y + "           ");
+                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Medborgaren " + citizen.Name + " blev rånad av " + robber.Name + "! Han tog " + itemRobbed.Items + "! Plats: " + citizen.X + ":" + citizen.Y);
                 }
             }
             foreach (var cop in cops)
@@ -58,7 +58,7 @@ namespace Tjuv_och_polis
                 if (robber != null)  //koden behandlar vad som händer när en tjuv och polis mötts  
                 {
                     
-                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuv blev tagen! Plats: " + robber.X + ":" + robber.Y + "                                  ");
+                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuven " + robber.Name + " blev tagen av polisen " + cop.Name +"! Plats: " + robber.X + ":" + robber.Y + "                     ");
                     //koden skriver ut händelsn när en tjuv och polis möts med relevant informatin som Time and Place
                     arrestMade++;//ökar informationen om hur många tjuvar har blivit tagna
 

@@ -13,16 +13,18 @@ namespace Tjuv_och_polis
 
         public int XDirection { get; set; }
         public int YDirection { get; set; }
+        public string Name { get; set; }
 
         public List<Inventory> Items { get; set; }
 
-        public Person(int x, int y, int xDirection,int yDirection, List<Inventory>items)
+        public Person(int x, int y, int xDirection,int yDirection, List<Inventory>items, string name)
         {
             X = x;
             Y = y;
             XDirection = xDirection;
             YDirection = yDirection;
             Items = new List<Inventory>();
+            Name = name;
         }
 
         public virtual char GetCharacter()
@@ -56,7 +58,7 @@ namespace Tjuv_och_polis
     class Robber : Person
     {
         public bool Prison { get; set; }
-        public Robber(int x, int y, int xDirection, int yDirection, List<Inventory>items, bool prison) : base(x, y, xDirection, yDirection, items)
+        public Robber(int x, int y, int xDirection, int yDirection, List<Inventory>items, bool prison, string name) : base(x, y, xDirection, yDirection, items, name)
         {
             X = x;
             Y = y;
@@ -81,7 +83,7 @@ namespace Tjuv_och_polis
 
     class Cop : Person 
     {
-        public Cop(int x, int y, int xDirection, int yDirection, List<Inventory> items) : base(x, y, xDirection, yDirection, items)
+        public Cop(int x, int y, int xDirection, int yDirection, List<Inventory> items, string name) : base(x, y, xDirection, yDirection, items, name)
         {
             X = x;
             Y = y;
@@ -103,7 +105,7 @@ namespace Tjuv_och_polis
 
     class Citizen : Person
     {
-        public Citizen(int x, int y, int xDirection, int yDirection, List<Inventory> items) : base(x, y, xDirection, yDirection, items) 
+        public Citizen(int x, int y, int xDirection, int yDirection, List<Inventory> items, string name) : base(x, y, xDirection, yDirection, items, name) 
         {
             X = x;
             Y = y;

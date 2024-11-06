@@ -19,7 +19,7 @@ namespace Tjuv_och_polis
             var citizens = persons.OfType<Citizen>().ToList();
             var cops = persons.OfType<Cop>().ToList();
 
-            if (reset = true)
+            if (reset == true)
             {
                 robberyCount = 0;
                 arrestMade = 0;
@@ -28,6 +28,7 @@ namespace Tjuv_och_polis
                     news.Dequeue();
                 }
                 reset = false;
+                Menu.reset = false;
             }
 
             foreach (var robber in robbers)

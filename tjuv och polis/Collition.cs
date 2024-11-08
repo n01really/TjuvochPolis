@@ -81,10 +81,9 @@ namespace Tjuv_och_polis
                     robber.Prison = true;
                     Console.Beep();
                     Thread.Sleep(500);
+                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuven " + robber.Name + " blev tagen av polisen " + cop.Name + "! Plats: " + robber.X + ":" + robber.Y + "                        ");
                     robber.X = jailStartX + 5;
                     robber.Y = jailStartY + 5;
-
-                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuven " + robber.Name + " blev tagen av polisen " + cop.Name + "! Plats: " + robber.X + ":" + robber.Y + "                        ");
                 }
 
             }

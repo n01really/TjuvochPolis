@@ -40,7 +40,8 @@ namespace Tjuv_och_polis
                     PauseSimulation();
                     break;
                 case ConsoleKey.D:
-                    Data.DataWindow(persons, isRunning);
+                    isRunning = false;
+                    Data.DataWindow(persons);
                     break;
                 case ConsoleKey.Q:
                     Environment.Exit(0);
@@ -51,7 +52,10 @@ namespace Tjuv_och_polis
                     Program.Main();
                     break;
                 default:
-                    Console.SetCursorPosition(20, 0);
+                    if (isRunning)
+                    {
+                        Console.SetCursorPosition(20, 0);
+                    }
                     //Console.Clear();
                     Console.WriteLine("Fel knappval. Välj ett val i menyn!");
                     //Program.Main();

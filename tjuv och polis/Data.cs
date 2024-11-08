@@ -8,9 +8,8 @@ namespace Tjuv_och_polis
 {
     internal class Data
     {
-        public static void DataWindow(List<Person>persons, bool isRunning)
+        public static void DataWindow(List<Person>persons)
         {
-            isRunning = false;
             Console.Clear();
             
             foreach (Person person in persons)

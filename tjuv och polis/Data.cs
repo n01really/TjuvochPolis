@@ -12,8 +12,12 @@ namespace Tjuv_och_polis
         {
             isRunning = false;
             Console.Clear();
+            
             foreach (Person person in persons)
             {
+                if (person is Citizen) { Console.ForegroundColor = ConsoleColor.Green; }
+                if (person is Robber) { Console.ForegroundColor = ConsoleColor.Red; }
+                if (person is Cop) { Console.ForegroundColor = ConsoleColor.Blue; }
                 Console.Write($"{person} {person.Name}: ");
                 if (person.Items != null && person.Items.Count > 0)
                 {
@@ -29,7 +33,9 @@ namespace Tjuv_och_polis
                 }
                 Console.WriteLine($" - Position: { person.X}:{ person.Y}. Riktning: { person.XDirection}:{ person.YDirection}");
                 if (person is Robber robber)
-                { Console.WriteLine(robber.PrisonTime); }
+                {
+                    Console.WriteLine(robber.PrisonTime);
+                }
             }
             Console.WriteLine();
             Menu.Title();

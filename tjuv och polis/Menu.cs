@@ -20,8 +20,6 @@ namespace Tjuv_och_polis
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             Console.Write("[S] Start\t[P] Pause\t[D] Data\t[R] Reset\t [Q] Exit " + isRunning);
-            //Console.ForegroundColor = ConsoleColor.DarkGray;
-            //Console.Write("\t\t\t  Fängelse");
             Console.WriteLine();
         }
 
@@ -37,7 +35,6 @@ namespace Tjuv_och_polis
                     isRunning = true;
                     Console.Clear();
                     Simulation.Run(persons,  isRunning);
-                    //StartSimulation();
                     break;
                 case ConsoleKey.P:
                     PauseSimulation();
@@ -58,24 +55,8 @@ namespace Tjuv_och_polis
                     Console.WriteLine("Fel knappval. Välj ett val i menyn!");
                     Program.Main();
                     break;
-            }
-
-
-            
+            } 
         }
-        //static void StartSimulation()
-        //{
-        //    if (isRunning)
-        //    {
-        //        Console.WriteLine("Simulation is already running.");
-        //    }
-        //    else
-        //    {
-        //        isRunning = true;
-        //        Console.WriteLine("Starting the Cops and Robbers simulation...");
-        //        // Simulation logic would go here.
-        //    }
-        //}
 
         public static void PauseSimulation()
         {
@@ -84,7 +65,6 @@ namespace Tjuv_och_polis
                 Thread.Sleep(100);
             }
         }
-
     }
 }
 

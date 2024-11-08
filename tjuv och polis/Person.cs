@@ -10,11 +10,9 @@ namespace Tjuv_och_polis
     {
         public int X { get; set; }
         public int Y { get; set; }
-
         public int XDirection { get; set; }
         public int YDirection { get; set; }
         public string Name { get; set; }
-
         public List<Inventory> Items { get; set; }
 
         public Person(int x, int y, int xDirection,int yDirection, List<Inventory>items, string name)
@@ -31,16 +29,16 @@ namespace Tjuv_och_polis
         {
             return ' ';
         }
+
+        //  Logic for movement in the city
         public void Move(int wallLeft, int wallTop,int width, int height)
         {
             int xWidth = wallLeft + width;
             int yHeight = wallTop + height;
             Console.SetCursorPosition(X, Y);
             Console.Write(" ");
-
             X += XDirection;
             Y += YDirection;
-
             X = Math.Clamp(X, wallLeft, xWidth - 2);
             Y = Math.Clamp(Y, wallTop, yHeight - 2);
 
@@ -69,14 +67,12 @@ namespace Tjuv_och_polis
             Prison = prison;
             PrisonTime = prisonTime;
         }
-
         public override char GetCharacter()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             return 'T';
             
         }
-
         public override string ToString()
         {
             return "Rånare";

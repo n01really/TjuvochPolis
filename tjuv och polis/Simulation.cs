@@ -10,26 +10,19 @@ namespace Tjuv_och_polis
     {
         private static int X = 0, Y = 2;
         private static int Width = 80, Height = 20;
-
         private static int prisonStartX = Width + 2;
         private static int prisonWidth = 20, prisonHeight = 10;
-
         private static int newsWidth = 102, newsHeight = 9;
-        
         private static Collition collition = new Collition();
         public static void Run(List<Person>persons, bool isRunning)
         {
             Console.Clear();
-            
             Menu.Title();
 
-            //Rita staden
+            //  Draw borders for city, prison and newsfeed
             DrawMap.DrawBorder(X, Y, Width, Height);
-            //Rita fängelse
             DrawMap.DrawBorder(prisonStartX, Y, prisonWidth, prisonHeight);
-            //Rita newsFeed
             DrawMap.DrawBorder(X, Height + Y, newsWidth, newsHeight);
-
             Console.SetCursorPosition(prisonStartX, 1);
             Console.Write("Fängelse");
 
@@ -37,6 +30,7 @@ namespace Tjuv_och_polis
             {
                 foreach (var Person in persons)
                 {
+                    //  Logic for prison sentence
                     if (Person is Robber robber && robber.Prison)
                     {
                         robber.Move(prisonStartX + 1, 3, prisonWidth, prisonHeight + 2);
@@ -57,10 +51,12 @@ namespace Tjuv_och_polis
                     Console.Write(Person.GetCharacter());
                     Console.ResetColor();
                 }
+                
+                //  Simulation speed
                 Thread.Sleep(100);
-
                 collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight, Menu.reset);
 
+                //  Test for menu input during simulation
                 if (Console.KeyAvailable)
                 {
                     Menu.Buttons(persons);

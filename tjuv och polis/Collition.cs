@@ -19,6 +19,7 @@ namespace Tjuv_och_polis
             var citizens = persons.OfType<Citizen>().ToList();
             var cops = persons.OfType<Cop>().ToList();
 
+            //  Reset functionality
             if (reset == true)
             {
                 robberyCount = 0;
@@ -31,6 +32,7 @@ namespace Tjuv_och_polis
                 Menu.reset = false;
             }
 
+            //  Logic for when a robber run into a citizen.
             foreach (var robber in robbers)
             {
                 var citizen = citizens.FirstOrDefault
@@ -38,30 +40,27 @@ namespace Tjuv_och_polis
                 if (citizen != null)
                 {
                     robberyCount++;
-
                     int index = rnd.Next(citizen.Items.Count);
                     Inventory itemRobbed = citizen.Items[index];
-
                     citizen.Items.RemoveAt(index);
                     robber.Items.Add(itemRobbed);
                     Console.Beep();
-                    //Thread.Sleep(1500);
+                    Thread.Sleep(500);
                     Console.SetCursorPosition(citizen.X, citizen.Y);
                     Console.Write("X");
                     
                     news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Medborgaren " + citizen.Name + " blev rånad av " + robber.Name + "! Han tog " + itemRobbed.Items + "! Plats: " + citizen.X + ":" + citizen.Y + "       ");
                 }
             }
+
+            //  Logic for when a cop run into a robber.
             foreach (var cop in cops)
             {
                 var robber = robbers.FirstOrDefault(robber => robber.X == cop.X && robber.Y == cop.Y && robber.Items.Any());
-                if (robber != null)  //koden behandlar vad som händer när en tjuv och polis mötts  
+                if (robber != null)
                 {
-                    
-                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuven " + robber.Name + " blev tagen av polisen " + cop.Name +"! Plats: " + robber.X + ":" + robber.Y + "                        ");
-                    //koden skriver ut händelsn när en tjuv och polis möts med relevant informatin som Time and Place
-                    arrestMade++;//ökar informationen om hur många tjuvar har blivit tagna
-                   
+                    arrestMade++;
+
                     foreach(var item in robber.Items)
                     {
                         robber.PrisonTime += 100;
@@ -71,10 +70,11 @@ namespace Tjuv_och_polis
                     robber.Items.Clear();
                     robber.Prison = true;
                     Console.Beep();
-                    //Thread.Sleep(1500);
+                    Thread.Sleep(500);
                     robber.X = jailStartX + 5;
                     robber.Y = jailStartY + 5;
-                    //När tjuven är tagen så får polisen allt som tjuven har taggit och tjuvens inventarie blir tömt, tjuven blir sed för flyttad till fängelse.
+
+                    news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuven " + robber.Name + " blev tagen av polisen " + cop.Name + "! Plats: " + robber.X + ":" + robber.Y + "                        ");
                 }
 
             }
@@ -82,9 +82,12 @@ namespace Tjuv_och_polis
             {
                 news.Dequeue();
             }
-            Console.SetCursorPosition(x, y);
-            Console.WriteLine($"Antal rån: {robberyCount}.  Antal gripna: {arrestMade}");//Koden skriver ut hur många rån som har skett och hur många tjuvar som har blivt tgana
 
+            //  Robbery statistics
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine($"Antal rån: {robberyCount}  Antal gripna: {arrestMade}");
+
+            //  Scrolling newsfeed
             object[] newsArray = news.ToArray();
             Console.SetCursorPosition(x, y+1);
             Console.WriteLine("Nyheter:");
@@ -108,9 +111,6 @@ namespace Tjuv_och_polis
                     var newsItem = newsArray[newsArray.Length - 1 - i];
                     Console.SetCursorPosition(x, y + 2 + i);
                     Console.WriteLine(newsItem);
-                    
-
-
                 }
 
             }

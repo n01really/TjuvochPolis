@@ -8,6 +8,7 @@ namespace Tjuv_och_polis
 {
     internal class Population
     {
+        //  Generating a set number of citizens, cops and robbers for the city simulation.
         public static void Populate(int width, int height, List<Person> persons)
         {
             Random rnd = new Random();

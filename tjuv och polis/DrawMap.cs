@@ -8,6 +8,7 @@ namespace Tjuv_och_polis
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
 
+            //  Top border
             Console.SetCursorPosition(startX, startY);
             Console.Write("╔");
             for (int x = startX + 1; x < startX + width - 1; x++)
@@ -18,6 +19,7 @@ namespace Tjuv_och_polis
             Console.SetCursorPosition(startX + width - 1, startY);
             Console.Write("╗");
 
+            //  Bottom border
             Console.SetCursorPosition(startX, startY + height - 1);
             Console.Write("╚");
             for (int x = startX + 1; x < startX + width - 1; x++)
@@ -28,6 +30,7 @@ namespace Tjuv_och_polis
             Console.SetCursorPosition(startX + width - 1, startY + height - 1);
             Console.Write("╝");
 
+            //  Border sides
             for (int y = startY + 1; y < startY + height - 1; y++)
             {
                 Console.SetCursorPosition(startX, y);

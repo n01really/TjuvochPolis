@@ -10,7 +10,6 @@ namespace Tjuv_och_polis
             int Width = 80, Height = 20;
             List<Person> persons = new List<Person>();
             Population.Populate(Width, Height, persons);
-
             Menu.Title();
             Menu.Buttons(persons);
         }

@@ -39,7 +39,12 @@ namespace Tjuv_och_polis
                     Simulation.Run(persons,  isRunning);
                     break;
                 case ConsoleKey.P:
-                    PauseSimulation();
+                    if (state == "data")
+                    { break; }
+                    else
+                    {
+                        PauseSimulation();
+                    }
                     break;
                 case ConsoleKey.D:
                     state = "data";

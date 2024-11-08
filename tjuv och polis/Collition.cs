@@ -107,12 +107,12 @@ namespace Tjuv_och_polis
                     {
                         Console.ForegroundColor= ConsoleColor.White;
                     }
-
+                    
                     var newsItem = newsArray[newsArray.Length - 1 - i];
                     Console.SetCursorPosition(x, y + 2 + i);
                     Console.WriteLine(newsItem);
                 }
-
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
     }

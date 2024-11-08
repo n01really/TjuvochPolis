@@ -55,10 +55,11 @@ namespace Tjuv_och_polis
 
             foreach (var citizen in citizens)
             {
-                if (!citizen.Items.Any())
+                if (!citizen.Items.Any() && !citizen.Poor)
                 {
+                    citizen.Poor = true;
                     citizen.X = jailStartX + 5;
-                    citizen.Y = jailStartY + 5;
+                    citizen.Y = jailStartY + 15;
                 }
             }
 

@@ -47,19 +47,14 @@ namespace Tjuv_och_polis
                             robber.Y = 10;
                         }
                     }
+                    else if (Person is Citizen citizen && citizen.Poor == true)
+                    {
+                        citizen.Move(povertyStartX + 1, povertyStartY + 1, povertyWidth, povertyHeight + 2);
+                    }
                     else
                     {
                         Person.Move(1, 3, Width, Height + 2);
                     }
-
-                    if (Person is Citizen citizen && citizen.Poor == true)
-                    {
-                        citizen.Move(povertyStartX + 3, povertyStartY + 3, povertyWidth, povertyHeight + 2);
-                    }
-                    //else
-                    //{
-                    //    Person.Move(1, 3, Width, Height + 2);
-                    //}
 
                     Console.SetCursorPosition(Person.X, Person.Y);
                     Console.Write(Person.GetCharacter());

@@ -51,9 +51,10 @@ namespace Tjuv_och_polis
                     Program.Main();
                     break;
                 default:
-                    Console.Clear();
+                    Console.SetCursorPosition(20, 0);
+                    //Console.Clear();
                     Console.WriteLine("Fel knappval. Välj ett val i menyn!");
-                    Program.Main();
+                    //Program.Main();
                     break;
             } 
         }

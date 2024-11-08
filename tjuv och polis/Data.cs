@@ -19,6 +19,7 @@ namespace Tjuv_och_polis
                 if (person is Robber) { Console.ForegroundColor = ConsoleColor.Red; }
                 if (person is Cop) { Console.ForegroundColor = ConsoleColor.Blue; }
                 Console.Write($"{person} {person.Name}: ");
+                Console.ForegroundColor = ConsoleColor.White;
                 if (person.Items != null && person.Items.Count > 0)
                 {
                     Console.Write("Innehav: ");
@@ -31,13 +32,14 @@ namespace Tjuv_och_polis
                 {
                     Console.Write("Inga föremål hittade.");
                 }
-                Console.WriteLine($" - Position: { person.X}:{ person.Y}. Riktning: { person.XDirection}:{ person.YDirection}");
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine($" - Position: {person.X}:{person.Y}. Riktning: {person.XDirection}:{person.YDirection}");
                 if (person is Robber robber)
                 {
-                    Console.WriteLine(robber.PrisonTime);
+                    Console.WriteLine("Fängelsetid: " + robber.PrisonTime);
                 }
+                Console.WriteLine();
             }
-            Console.WriteLine();
             Menu.Title();
             Menu.Buttons(persons);
             Console.ReadKey();

@@ -23,6 +23,7 @@ namespace Tjuv_och_polis
             Console.WriteLine();
         }
 
+        private static string state;
         private static bool isRunning = false;
         public static bool reset = false;
         public static void Buttons(List<Person>persons)
@@ -32,6 +33,7 @@ namespace Tjuv_och_polis
             switch (key.Key)
             {
                 case ConsoleKey.S:
+                    state = "simulation";
                     isRunning = true;
                     Console.Clear();
                     Simulation.Run(persons,  isRunning);
@@ -40,6 +42,7 @@ namespace Tjuv_och_polis
                     PauseSimulation();
                     break;
                 case ConsoleKey.D:
+                    state = "data";
                     isRunning = false;
                     Data.DataWindow(persons);
                     break;
@@ -52,13 +55,19 @@ namespace Tjuv_och_polis
                     Program.Main();
                     break;
                 default:
-                    if (isRunning)
+                    if (state == "simulation")
                     {
                         Console.SetCursorPosition(20, 0);
+                        Console.WriteLine("Fel knappval. Välj ett val i menyn!");
+                        break;
                     }
-                    //Console.Clear();
-                    Console.WriteLine("Fel knappval. Välj ett val i menyn!");
-                    //Program.Main();
+                    if (state == "data")
+                    {
+                        Console.WriteLine("Fel knappval. Välj ett val i menyn!");
+                        Thread.Sleep(1000);
+                        Console.Clear();
+                        Data.DataWindow(persons);
+                    }
                     break;
             } 
         }

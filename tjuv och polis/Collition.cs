@@ -53,6 +53,15 @@ namespace Tjuv_och_polis
                 }
             }
 
+            foreach (var citizen in citizens)
+            {
+                if (!citizen.Items.Any())
+                {
+                    citizen.X = jailStartX + 5;
+                    citizen.Y = jailStartY + 5;
+                }
+            }
+
             //  Logic for when a cop run into a robber.
             foreach (var cop in cops)
             {

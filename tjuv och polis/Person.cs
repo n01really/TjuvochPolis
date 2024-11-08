@@ -103,13 +103,15 @@ namespace Tjuv_och_polis
 
     class Citizen : Person
     {
-        public Citizen(int x, int y, int xDirection, int yDirection, List<Inventory> items, string name) : base(x, y, xDirection, yDirection, items, name) 
+        public bool Poor { get; set; }
+        public Citizen(int x, int y, int xDirection, int yDirection, List<Inventory> items, string name, bool poor) : base(x, y, xDirection, yDirection, items, name) 
         {
             X = x;
             Y = y;
             XDirection = xDirection;
             YDirection = yDirection;
             Items = items;
+            Poor = poor;
         }
         public override char GetCharacter()
         {

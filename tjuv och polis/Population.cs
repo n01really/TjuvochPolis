@@ -35,7 +35,7 @@ namespace Tjuv_och_polis
                 new Inventory("klockan"),
                 new Inventory("nyklarna"),
                 new Inventory("telefonen")
-                }, names[i]));
+                }, names[i], false));
             }
 
             for (int i = 0; i < 10; i++)

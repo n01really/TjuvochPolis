@@ -41,7 +41,7 @@ namespace Tjuv_och_polis
             }
             Menu.Title();
             Menu.Buttons(persons);
-            Console.ReadKey();
+            //Console.ReadKey();
         }
     }
 }

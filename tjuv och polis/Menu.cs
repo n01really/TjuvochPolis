@@ -34,14 +34,12 @@ namespace Tjuv_och_polis
             {
                 case ConsoleKey.S:
                     state = "simulation";
-                    isRunning = true;
                     Console.Clear();
+                    isRunning = true;
                     Simulation.Run(persons,  isRunning);
                     break;
                 case ConsoleKey.P:
-                    if (state == "data")
-                    { break; }
-                    else
+                    if (state == "simulation")
                     {
                         PauseSimulation();
                     }

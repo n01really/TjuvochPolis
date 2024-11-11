@@ -13,6 +13,7 @@ namespace Tjuv_och_polis
         int arrestMade = 0;
         Queue news = new Queue();
         Random rnd = new Random();
+        public int inJail = 0;
         public void CollitionManager(List<Person> persons, int x, int y, int jailStartX, int jailStartY, int jailWidth, int jailHeight, bool reset)
         {
             var robbers = persons.OfType<Robber>().ToList();
@@ -70,6 +71,7 @@ namespace Tjuv_och_polis
                 if (robber != null)
                 {
                     arrestMade++;
+                    inJail++;
 
                     foreach(var item in robber.Items)
                     {

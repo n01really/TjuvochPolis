@@ -42,6 +42,7 @@ namespace Tjuv_och_polis
                         robber.PrisonTime--;
                         if (robber.PrisonTime == 0)
                         {
+                            collition.inJail--;
                             robber.Prison = false;
                             robber.X = 10;
                             robber.Y = 10;
@@ -60,6 +61,9 @@ namespace Tjuv_och_polis
                     Console.Write(Person.GetCharacter());
                     Console.ResetColor();
                 }
+                
+                Console.SetCursorPosition(povertyStartX, povertyStartY - 2);
+                Console.WriteLine($"Antal i fängelse: {collition.inJail}");
                 
                 //  Simulation speed
                 Thread.Sleep(100);

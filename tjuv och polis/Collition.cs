@@ -25,6 +25,7 @@ namespace Tjuv_och_polis
             {
                 robberyCount = 0;
                 arrestMade = 0;
+                inJail = 0;
                 while (news.Count > 0)
                 {
                     news.Dequeue();

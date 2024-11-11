@@ -45,7 +45,7 @@ namespace Tjuv_och_polis
                     Inventory itemRobbed = citizen.Items[index];
                     citizen.Items.RemoveAt(index);
                     robber.Items.Add(itemRobbed);
-                    Console.Beep();
+                    Console.Beep();//det är till för att vara iriterande, jag har hört att det är irriterande att bli rånad
                     Thread.Sleep(500);
                     Console.SetCursorPosition(citizen.X, citizen.Y);
                     Console.Write("X");
@@ -81,7 +81,7 @@ namespace Tjuv_och_polis
                     cop.Items.AddRange(robber.Items);
                     robber.Items.Clear();
                     robber.Prison = true;
-                    Console.Beep();
+                    Console.Beep();//presic som att bli tagen av polisen i verkligheten så är detta ljud lika iriteande
                     Thread.Sleep(500);
                     news.Enqueue(DateTime.Now.ToString("HH:mm:ss") + " Tjuven " + robber.Name + " blev tagen av polisen " + cop.Name + "! Plats: " + robber.X + ":" + robber.Y + "                        ");
                     robber.X = jailStartX + 5;

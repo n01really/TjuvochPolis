@@ -96,7 +96,7 @@ namespace Tjuv_och_polis
 
             //  Robbery statistics
             Console.SetCursorPosition(x, y);
-            Console.WriteLine($"Antal rån: {robberyCount}  Antal gripna: {arrestMade}");
+            Console.WriteLine($"Antal rån: {robberyCount}  Antal gripna: {arrestMade} Antal medborgare: {citizens.Count} Antal poliser: {cops.Count} Antal fria tjuvar: {robbers.Count - inJail}    ");
 
             //  Scrolling newsfeed
             object[] newsArray = news.ToArray();

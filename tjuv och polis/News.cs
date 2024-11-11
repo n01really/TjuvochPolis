@@ -18,11 +18,13 @@ namespace Tjuv_och_polis
 
             //  Robbery statistics
             Console.SetCursorPosition(x, y);
-            Console.WriteLine($"Antal rån: {robberyCount}  Antal gripna: {arrestMade} Antal medborgare: {citizens.Count} Antal poliser: {cops.Count} Antal fria tjuvar: {robbers.Count - inJail}    ");
+            Console.WriteLine($"Antal rån: {robberyCount} | Antal gripna: {arrestMade} | Antal medborgare: {citizens.Count} | Antal poliser: {cops.Count} | Antal fria tjuvar: {robbers.Count - inJail} ");
+            Console.SetCursorPosition(x, y + 1);
+            Console.WriteLine("----------------------------------------------------------------------------------------------------");
 
             //  Scrolling newsfeed
             object[] newsArray = news.ToArray();
-            Console.SetCursorPosition(x, y + 1);
+            Console.SetCursorPosition(x, y + 2);
             Console.WriteLine("Nyheter:");
             if (news.Count > 0)
             {
@@ -42,7 +44,7 @@ namespace Tjuv_och_polis
                     }
 
                     var newsItem = newsArray[newsArray.Length - 1 - i];
-                    Console.SetCursorPosition(x, y + 2 + i);
+                    Console.SetCursorPosition(x, y + 3 + i);
                     Console.WriteLine(newsItem);
                 }
                 Console.ForegroundColor = ConsoleColor.White;

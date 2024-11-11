@@ -14,7 +14,7 @@ namespace Tjuv_och_polis
         private static int prisonWidth = 20, prisonHeight = 10;
         private static int povertyStartX = Width + 2, povertyStartY = prisonHeight + 4;
         private static int povertyWidth = 20, povertyHeight = 8;
-        private static int newsWidth = 102, newsHeight = 9;
+        private static int newsWidth = 102, newsHeight = 10;
         private static Collition collition = new Collition();
         public static void Run(List<Person>persons, bool isRunning)
         {

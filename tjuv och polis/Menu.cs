@@ -19,7 +19,7 @@ namespace Tjuv_och_polis
             Console.Write("Polis");
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("[S] Start\t[P] Pause\t[D] Data\t[R] Reset\t [Q] Exit " + isRunning);
+            Console.Write("[S] Start\t[P] Pause\t[D] Data\t[R] Reset\t [Q] Exit ");
             Console.WriteLine();
         }
 

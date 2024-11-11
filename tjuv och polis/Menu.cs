@@ -43,6 +43,11 @@ namespace Tjuv_och_polis
                     {
                         PauseSimulation();
                     }
+                    else
+                    {
+                        Console.Clear();
+                        Data.DataWindow(persons);
+                    }
                     break;
                 case ConsoleKey.D:
                     state = "data";

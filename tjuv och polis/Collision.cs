@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Tjuv_och_polis
 {
-    internal class Collition
+    internal class Collision
     {
         int robberyCount = 0;
         int arrestMade = 0;
         Queue news = new Queue();
         Random rnd = new Random();
         public int inJail = 0;
-        public void CollitionManager(List<Person> persons, int x, int y, int jailStartX, int jailStartY, int jailWidth, int jailHeight, bool reset)
+        public void CollisionManager(List<Person> persons, int x, int y, int jailStartX, int jailStartY, int jailWidth, int jailHeight, bool reset)
         {
             var robbers = persons.OfType<Robber>().ToList();
             var citizens = persons.OfType<Citizen>().ToList();

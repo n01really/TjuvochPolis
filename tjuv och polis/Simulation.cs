@@ -15,7 +15,7 @@ namespace Tjuv_och_polis
         private static int povertyStartX = Width + 2, povertyStartY = prisonHeight + 4;
         private static int povertyWidth = 20, povertyHeight = 8;
         private static int newsWidth = 102, newsHeight = 10;
-        private static Collition collition = new Collition();
+        private static Collision collstion = new Collision();
         public static void Run(List<Person>persons, bool isRunning)
         {
             Console.Clear();
@@ -42,7 +42,7 @@ namespace Tjuv_och_polis
                         robber.PrisonTime--;
                         if (robber.PrisonTime == 0)
                         {
-                            collition.inJail--;
+                            collstion.inJail--;
                             robber.Prison = false;
                             robber.X = 10;
                             robber.Y = 10;
@@ -63,11 +63,11 @@ namespace Tjuv_och_polis
                 }
                 
                 Console.SetCursorPosition(povertyStartX, povertyStartY - 2);
-                Console.WriteLine($"Antal i fängelse: {collition.inJail}");
+                Console.WriteLine($"Antal i fängelse: {collstion.inJail}");
                 
                 //  Simulation speed
                 Thread.Sleep(100);
-                collition.CollitionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight, Menu.reset);
+                collstion.CollisionManager(persons, 1, Height + 3, prisonStartX + 1, 3, prisonWidth, prisonHeight, Menu.reset);
 
                 //  Test for menu input during simulation
                 if (Console.KeyAvailable)

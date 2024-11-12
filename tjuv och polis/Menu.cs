@@ -43,7 +43,7 @@ namespace Tjuv_och_polis
                     {
                         PauseSimulation();
                     }
-                    else
+                    else if (state == "data")
                     {
                         Console.Clear();
                         Data.DataWindow(persons);
